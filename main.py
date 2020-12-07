@@ -12,7 +12,7 @@ print('\n Shors Algorithm')
 print('--------------------')
 print('\nExecuting...\n')
 
-factors = Shors(21, )  # Function to run Shor's algorithm where 21 is the integer to be factored
+factors = Shors(21, 3)  # Function to run Shor's algorithm where 21 is the integer to be factored
 print(factors.gcd())
 
 # result_dict = factors.run(QuantumInstance(backend, shots=1, skip_qobj_validation=False))
