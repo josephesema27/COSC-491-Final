@@ -4,13 +4,15 @@ class Shors:
     def __init__(self, num, divisor):
         self.num = num
         self.div = divisor
+        self.true_prime = 3
 
     def isprime(self, number):
         if number % 2 == 0:
             return False
-        for i in range(3, number, 2):
+        for i in range(self.true_prime, number, 2):
             if number % i == 0:
                 return False
+        self.true_prime = number
         return True
 
     def gcd(self):
