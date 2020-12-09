@@ -6,6 +6,7 @@ class Shors:
         self.div = divisor
         self.true_prime = 3
 
+    # checking if the number is already prime
     def isprime(self, number):
         if number % 2 == 0:
             return False
@@ -15,11 +16,35 @@ class Shors:
         self.true_prime = number
         return True
 
+    def getfactor(self, number):
+        factors = []
+        for num in range(1, number+1):
+            if number % num == 0:
+                factors.append(num)
+        return factors
+
+    def order(self):
+        # checking all possible factors that only share 1 as a prime number
+        all_coprimes = []
+        a = 3
+        factor_a = self.getfactor(a)
+        factor_num = self.getfactor(self.num)
+        shared_factors = 0
+        while a < self.num:
+            for num in factor_a:
+                if num in factor_num:
+                    shared_factors += 1
+            if shared_factors == 1:
+                all_coprimes.append(a)
+            a += 1
+            factor_a = self.getfactor(a)
+            shared_factors = 0
+        return all_coprimes
+
     def gcd(self):
         factors = []
         if self.isprime(self.num):
             return self.num
-        # #a = math.random.randint(2, self.num-1)
         # if self.div > self.num:
         #     self.num, self.div = self.div, self.num
         # while self.div > 0:
