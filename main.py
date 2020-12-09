@@ -16,6 +16,7 @@ print('\nExecuting...\n')
 N = int(input("Enter a number: "))
 a = 3
 factors = Shors(N, a)  # Function to run Shor's algorithm where 21 is the integer to be factored
+N2 = int(input("Enter another number: "))
 
 xvals = factors.order()
 yvals = [np.mod(a ** x, N) for x in xvals]
@@ -28,3 +29,16 @@ check = a**(r/2) + 1
 print(check)
 if check != 0:
     print("The prime factors of", N, "are", factors.gcd())
+
+if N2 > 15:
+    factors2 = Shors(N2, a)
+    xvals2 = factors2.order()
+    yvals2 = [np.mod(a ** x, N2) for x in xvals2]
+
+    r = yvals2[1:].index(1) + 1
+    print("possible period value: ", r)
+
+    check = a ** (r / 2) + 1
+    print(check)
+    if check != 0:
+        print("The prime factors of", N2, "are", factors2.gcd())
