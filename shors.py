@@ -16,6 +16,7 @@ class Shors:
         self.true_prime = number
         return True
 
+    # getting all possible factors of each number
     def getfactor(self, number):
         factors = []
         for num in range(1, number+1):
@@ -45,11 +46,7 @@ class Shors:
         factors = []
         if self.isprime(self.num):
             return self.num
-        # if self.div > self.num:
-        #     self.num, self.div = self.div, self.num
-        # while self.div > 0:
-        #     self.num = self.num % self.div
-        #     self.num, self.div = self.div, self.num
+        # getting all the prime factors of N
         for num in range(3, self.num, 2):
             if self.num % num == 0:
                 if self.isprime(num):
